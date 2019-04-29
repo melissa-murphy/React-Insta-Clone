@@ -31,3 +31,8 @@
     transform: rotate(360deg);
   }
 }
+
+input.search:before {
+  content: "\f002";
+  font-family: "Font Awesome 5 Free";
+}

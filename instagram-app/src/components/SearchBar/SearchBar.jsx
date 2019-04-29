@@ -1,8 +1,9 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Label, Input } from "reactstrap";
 import PropTypes from "prop-types";
 
 import { FaInstagram } from "react-icons/fa";
+import { FiCompass, FiHeart, FiUser } from "react-icons/fi";
 import { IconContext } from "react-icons";
 import instagramLogo from "../../assets/img/instagram.png";
 
@@ -14,7 +15,7 @@ const SearchBar = () => {
       <Container className="pt-3">
         <Row>
           <Col xs="1">
-            <IconContext.Provider value={{ size: "4rem" }}>
+            <IconContext.Provider value={{ size: "3rem" }}>
               <FaInstagram />
             </IconContext.Provider>
           </Col>
@@ -25,10 +26,24 @@ const SearchBar = () => {
               alt="Instagram"
             />
           </Col>
-          <Col xs="6">im a search bar</Col>
-          <Col xs="1">icon</Col>
-          <Col xs="1">icon</Col>
-          <Col xs="1">icon</Col>
+          <Col xs="6" className="pt-1">
+            <Input type="search" name="search" placeholder="Search" />
+          </Col>
+          <Col xs="1">
+            <IconContext.Provider value={{ size: "3rem" }}>
+              <FiCompass />
+            </IconContext.Provider>
+          </Col>
+          <Col xs="1">
+            <IconContext.Provider value={{ size: "3rem" }}>
+              <FiHeart />
+            </IconContext.Provider>
+          </Col>
+          <Col xs="1">
+            <IconContext.Provider value={{ size: "3rem" }}>
+              <FiUser />
+            </IconContext.Provider>
+          </Col>
         </Row>
       </Container>
     </>
