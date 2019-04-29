@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Label, Input } from "reactstrap";
+import { Container, Row, Col, Input } from "reactstrap";
 import PropTypes from "prop-types";
 
 import { FaInstagram } from "react-icons/fa";
