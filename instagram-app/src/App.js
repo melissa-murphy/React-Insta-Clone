@@ -4,15 +4,23 @@ import "./App.css";
 import SearchBar from "./components/SearchBar/SearchBar";
 import PostContainer from "./components/PostContainer/PostContainer";
 
-function App() {
-  return (
-    <div className="App">
-      <SearchBar />
-      <PostContainer />
-      <PostContainer />
-      <PostContainer />
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      dummyData: dummyData
+    };
+  }
+  render() {
+    return (
+      <div className="App">
+        <SearchBar />
+        <PostContainer />
+        <PostContainer />
+        <PostContainer />
+      </div>
+    );
+  }
 }
 
 export default App;

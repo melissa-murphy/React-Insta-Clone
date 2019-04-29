@@ -18,9 +18,9 @@ const propTypes = {};
 const PostContainer = () => {
   return (
     <>
-      <Container>
+      <Container className="mt-5">
         <Row>
-          <Col xs={{ size: 6, offset: 3 }}>
+          <Col sm={{ size: 6, offset: 3 }}>
             <Card>
               <CardHeader>hoobie doobie doo</CardHeader>
               <CardImg

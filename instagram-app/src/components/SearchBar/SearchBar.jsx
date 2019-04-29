@@ -13,7 +13,7 @@ const SearchBar = () => {
   return (
     <>
       <Container className="pt-3">
-        <Row>
+        <Row className="py-5 border-top border-bottom border-secondary">
           <Col xs="1">
             <IconContext.Provider value={{ size: "3rem" }}>
               <FaInstagram />
@@ -44,6 +44,7 @@ const SearchBar = () => {
               <FiUser />
             </IconContext.Provider>
           </Col>
+          <hr />
         </Row>
       </Container>
     </>
