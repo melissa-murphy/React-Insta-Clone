@@ -15,9 +15,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <SearchBar />
-        <PostContainer />
-        <PostContainer />
-        <PostContainer />
+        <PostContainer dummyData={this.state.dummyData} />
       </div>
     );
   }
