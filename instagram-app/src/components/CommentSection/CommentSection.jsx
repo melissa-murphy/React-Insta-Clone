@@ -4,7 +4,12 @@ import PropTypes from "prop-types";
 const propTypes = {};
 
 const CommentSection = () => {
-  return <div />;
+  return (
+      <>
+      All the comments
+      for all the things
+      </>
+  );
 };
 
 CommentSection.propTypes = propTypes;

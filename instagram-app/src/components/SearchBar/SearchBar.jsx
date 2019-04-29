@@ -51,14 +51,24 @@ const SearchBar = () => {
 };
 
 SearchBar.propTypes = propTypes;
-Container.propTypes = {
-  fluid: PropTypes.bool
-  // applies .container-fluid class
-};
-Row.propTypes = {
-  noGutters: PropTypes.bool,
-  // see https://reactstrap.github.io/components/form Form Grid with Form Row
-  form: PropTypes.bool
-};
+// Container.propTypes = {
+//   fluid: PropTypes.bool
+//   // applies .container-fluid class
+// };
+// Row.propTypes = {
+//   noGutters: PropTypes.bool,
+//   // see https://reactstrap.github.io/components/form Form Grid with Form Row
+//   form: PropTypes.bool
+// };
+// Col.propTypes = {
+//     xs: columnProps,
+//     sm: columnProps,
+//     md: columnProps,
+//     lg: columnProps,
+//     xl: columnProps,
+//     // override the predefined width (the ones above) with your own custom widths.
+//     // see https://github.com/reactstrap/reactstrap/issues/297#issuecomment-273556116
+//     widths: PropTypes.array,
+//   }
 
 export default SearchBar;

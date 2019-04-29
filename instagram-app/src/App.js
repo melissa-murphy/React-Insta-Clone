@@ -1,22 +1,16 @@
 import React from "react";
+import dummyData from "./dummy-data";
 import "./App.css";
 import SearchBar from "./components/SearchBar/SearchBar";
 import PostContainer from "./components/PostContainer/PostContainer";
-import CommentSection from "./components/CommentSection/CommentSection";
 
 function App() {
   return (
     <div className="App">
       <SearchBar />
-      <PostContainer>
-        <CommentSection />
-      </PostContainer>
-      <PostContainer>
-        <CommentSection />
-      </PostContainer>
-      <PostContainer>
-        <CommentSection />
-      </PostContainer>
+      <PostContainer />
+      <PostContainer />
+      <PostContainer />
     </div>
   );
 }
