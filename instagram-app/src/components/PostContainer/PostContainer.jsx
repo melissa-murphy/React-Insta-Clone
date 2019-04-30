@@ -27,11 +27,13 @@ class PostContainer extends React.Component {
     console.log("postContainer rendering");
     return (
       <>
-        <Container className="mt-5">
+        <Container className="mt-5 postContainer">
           <Row>
             <Col sm={{ size: 6, offset: 3 }}>
               <Card>
-                <CardHeader>hoobie doobie doo</CardHeader>
+                <CardHeader className="user-info">
+                  <p>{this.props.dummyData.username}</p>
+                </CardHeader>
                 <CardImg
                   top
                   width="100%"
@@ -42,7 +44,7 @@ class PostContainer extends React.Component {
                   <CardSubtitle>icons</CardSubtitle>
                 </CardBody>
                 <CardFooter>
-                  <CommentSection />
+                  <CommentSection comments={this.props.dummyData.comments} />
                 </CardFooter>
               </Card>
             </Col>

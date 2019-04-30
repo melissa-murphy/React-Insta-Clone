@@ -1,19 +1,22 @@
 import React from "react";
 import "./App.css";
+
+import PostItems from "./components/PostContainer/PostItems";
+import SearchBar from "./components/SearchBar/SearchBar";
 import PostContainer from "./components/PostContainer/PostContainer";
 import CommentSection from "./components/CommentSection/CommentSection";
 
-import SearchBar from "./components/SearchBar/SearchBar";
+import dummyData from "./dummy-data";
 
 class App extends React.Component {
   state = {
     dummyData: []
   };
   componentDidMount() {
-    fetch("./dummy-data.js")
-      .then(res => res.json)
-      .then(entries => this.setState({ dummyData: entries }))
-      .catch(err => console.log("noooo"));
+    console.log("App: CDM running");
+    this.setState({
+      dummyData: dummyData
+    });
   }
 
   render() {
@@ -21,9 +24,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <SearchBar />
-        <PostContainer entries={this.state.dummyData}>
-          <CommentSection />
-        </PostContainer>
+        <PostItems dummyData={this.state.dummyData} />
       </div>
     );
   }
