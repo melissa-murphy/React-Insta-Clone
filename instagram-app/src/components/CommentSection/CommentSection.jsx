@@ -1,17 +1,45 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {
+//   Row,
+//   Col,
+//   Card,
+//   CardImg,
+//   CardBody,
+//   CardSubtitle,
+//   CardHeader,
+//   CardFooter
+} from "reactstrap";
 
-const propTypes = {};
+class CommentSection extends React.Component {
+  constructor() {
+    super();
+    console.log("CommentSection constructor is running");
+  }
 
-const CommentSection = () => {
-  return (
+  componentDidMount() {
+    console.log("CDM running");
+  }
+
+  render() {
+    console.log("dummyData rendering");
+    return (
       <>
-      All the comments
-      for all the things
-      </>
-  );
+       </>
+    );
+  }
+}
+
+CommentSection.propTypes = {
+  dummyData: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: PropTypes.username
+    })
+  )
 };
 
-CommentSection.propTypes = propTypes;
+CommentSection.defaultProps = {
+  dummyData: []
+};
 
 export default CommentSection;
