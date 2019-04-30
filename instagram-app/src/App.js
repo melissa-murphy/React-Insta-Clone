@@ -1,21 +1,27 @@
 import React from "react";
-import dummyData from "./dummy-data";
 import "./App.css";
+import { Container } from "reactstrap";
+
 import SearchBar from "./components/SearchBar/SearchBar";
-import PostContainer from "./components/PostContainer/PostContainer";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      dummyData: dummyData
+      dummyData: []
     };
   }
+  componentDidMount() {
+    fetch("./dummy-data.js")
+      .then(res => res.json)
+      .then(entries => this.setState({ dummyData: entries }));
+  }
+
   render() {
     return (
       <div className="App">
         <SearchBar />
-        <PostContainer dummyData={this.state.dummyData} />
+        <Container dummyData={this.state.dummyData} />
       </div>
     );
   }
