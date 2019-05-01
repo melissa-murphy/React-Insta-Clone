@@ -16,11 +16,24 @@ class PostContainer extends Component {
     return (
       <>
         <Row>
-          <Col>
+          <Col xs={{ size: 6, offset: 3 }} >
             <Card>
-              <CardHeader>{ this.props.post.username }</CardHeader>
+              <CardHeader>
+                <Row>
+                  <Col xs="2">
+                    <img
+                      className="img-thumbnail rounded-circle"
+                      src={this.props.post.thumbnailUrl}
+                      alt={this.props.post.username}
+                    />
+                  </Col>
+                  <Col xs="10" className="text-left mt-3">
+                    <strong>{this.props.post.username}</strong>
+                  </Col>
+                </Row>
+              </CardHeader>
 
-              <CardImg />
+              <CardImg src={this.props.post.imageUrl} alt="User Post" />
 
               <CardTitle>#likes #comments</CardTitle>
               <CardBody>comments here</CardBody>
@@ -33,15 +46,16 @@ class PostContainer extends Component {
   }
 }
 
+//
 PostContainer.propTypes = {
-    postContainer: PropTypes.arrayOf(
-        PropTypes.shape({
-            username: string.isRequired,
-            thumbnailUrl: string.isRequired,
-            imageUrl: string.isRequired,
-            likes: number.isRequired
-        })
-    )
+  postContainer: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: string.isRequired,
+      thumbnailUrl: string.isRequired,
+      imageUrl: string.isRequired,
+      likes: number.isRequired
+    })
+  )
 };
 
 PostContainer.defaultProps = {
