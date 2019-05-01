@@ -52,7 +52,7 @@ class PostContainer extends Component {
     return (
       <>
         <Row>
-          <Col xs={{ size: 6, offset: 3 }} className="my-4">
+          <Col sm={{ size: 6, offset: 3 }} className="my-4">
             <Card>
               <CardHeader>
                 <Row>
@@ -100,15 +100,18 @@ class PostContainer extends Component {
               </CardBody>
               <CardFooter>
                 {/* -------------------form start */}
-                <Form>
+                <Form onSubmit={this.addNewComment}>
                   <InputGroup>
                     <Input
                       type="text"
                       name="text"
                       placeholder="Add a comment..."
+                      value={this.state.userInput}
+                      onChange={this.handleChange}
                     />
                     <InputGroupAddon
                       onClick={this.addNewComment}
+                      type="submit"
                       className="pl-3 my-auto"
                       addonType="append"
                     >
