@@ -1,14 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class CommentSection extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+
+
+const CommentSection = () => {
+    return (
+        <div>
+            
+        </div>
+    );
+};
+
+
+CommentSection.propTypes = {
+    
+}
+
+CommentSection.defaultProps = {
+    commentSection: []
 }
 
 export default CommentSection;
-

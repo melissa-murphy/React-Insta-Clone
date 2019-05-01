@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CommentSection from '../CommentSection/CommentSection';
 import PropTypes, { number, string } from 'prop-types';
 import {
   Row,
@@ -8,7 +9,8 @@ import {
   CardImg,
   CardTitle,
   CardBody,
-  CardFooter
+  CardFooter,
+  Input
 } from 'reactstrap';
 
 class PostContainer extends Component {
@@ -16,7 +18,7 @@ class PostContainer extends Component {
     return (
       <>
         <Row>
-          <Col xs={{ size: 6, offset: 3 }} >
+          <Col xs={{ size: 6, offset: 3 }}>
             <Card>
               <CardHeader>
                 <Row>
@@ -35,9 +37,25 @@ class PostContainer extends Component {
 
               <CardImg src={this.props.post.imageUrl} alt="User Post" />
 
-              <CardTitle>#likes #comments</CardTitle>
-              <CardBody>comments here</CardBody>
-              <CardFooter>like and comment</CardFooter>
+              <CardTitle className="text-left">
+                <Row>
+                  <Col>like and comment</Col>
+                </Row>
+                <Row>
+                  <Col>#likes</Col>
+                </Row>
+              </CardTitle>
+              <CardBody>
+                <div>
+                  {this.props.userPosts.comments.map((comment, index) => (
+                    <CommentSection key={index} comment={comment} />
+                  ))}
+                </div>
+              </CardBody>
+              <CardFooter>
+                {/* Need to append more icon */}
+                <Input type="text" name="text" placeholder="Add a comment..." />
+              </CardFooter>
             </Card>
           </Col>
         </Row>
@@ -53,7 +71,11 @@ PostContainer.propTypes = {
       username: string.isRequired,
       thumbnailUrl: string.isRequired,
       imageUrl: string.isRequired,
-      likes: number.isRequired
+      likes: number.isRequired,
+      comments: {
+        username: string.isRequired,
+        text: string.isRequired
+      }
     })
   )
 };
