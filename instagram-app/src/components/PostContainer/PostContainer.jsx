@@ -16,7 +16,21 @@ import { IconContext } from 'react-icons';
 import { FiHeart, FiMoreHorizontal, FiMessageCircle } from 'react-icons/fi';
 
 class PostContainer extends Component {
+  state = {
+    likes: 0
+  };
 
+  componentDidMount() {
+    this.setState({
+      likes: this.props.post.likes
+    });
+  }
+  addOnClick = event => {
+    console.log('Click to like fired');
+    this.setState({
+      likes: this.state.likes + 1
+    });
+  };
   render() {
     return (
       <>
@@ -44,7 +58,7 @@ class PostContainer extends Component {
                 <Row className="p-3">
                   <Col>
                     <Row>
-                      <Col xs="1">
+                      <Col xs="1" onClick={this.addOnClick.bind(this)}>
                         <IconContext.Provider value={{ size: '2rem' }}>
                           <FiHeart />
                         </IconContext.Provider>
@@ -58,7 +72,10 @@ class PostContainer extends Component {
                   </Col>
                 </Row>
                 <Row className="p-3">
-                  <Col>{this.props.post.likes}<span> Likes</span></Col>
+                  <Col>
+                    {this.state.likes}
+                    <span> Likes</span>
+                  </Col>
                 </Row>
               </CardTitle>
               <CardBody>
