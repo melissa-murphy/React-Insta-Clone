@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Row } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 class CommentSection extends Component {
 
@@ -8,7 +8,11 @@ class CommentSection extends Component {
     return (
       <>
         <Row>
-          
+          {this.props.comments.map((comment, index) => (
+            <Col key={index} comment={comment} className='comment'>
+              hoobie doobie
+            </Col>
+          ))}          
         </Row>
       </>
     );

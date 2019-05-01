@@ -14,12 +14,6 @@ import {
 } from 'reactstrap';
 
 class PostContainer extends Component {
-  state = {
-    comments: {
-      userName: '',
-      text: ''
-    }
-  };
 
   render() {
     return (
@@ -53,11 +47,7 @@ class PostContainer extends Component {
                 </Row>
               </CardTitle>
               <CardBody>
-                <div className="container">
-                  {this.state.comments.map((comment, index) => (
-                    <CommentSection key={index} comment={comment} />
-                  ))}
-                </div>
+                <CommentSection comments={this.props.post.comments} />
               </CardBody>
               <CardFooter>
                 {/* Need to append more icon */}
