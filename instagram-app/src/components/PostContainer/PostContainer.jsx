@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CommentSection from '../CommentSection/CommentSection';
-import PropTypes, { number, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import {
   Row,
   Col,
@@ -14,6 +14,13 @@ import {
 } from 'reactstrap';
 
 class PostContainer extends Component {
+  state = {
+    comments: {
+      userName: '',
+      text: ''
+    }
+  };
+
   render() {
     return (
       <>
@@ -46,8 +53,8 @@ class PostContainer extends Component {
                 </Row>
               </CardTitle>
               <CardBody>
-                <div>
-                  {this.props.userPosts.comments.map((comment, index) => (
+                <div className="container">
+                  {this.state.comments.map((comment, index) => (
                     <CommentSection key={index} comment={comment} />
                   ))}
                 </div>
@@ -68,14 +75,11 @@ class PostContainer extends Component {
 PostContainer.propTypes = {
   postContainer: PropTypes.arrayOf(
     PropTypes.shape({
-      username: string.isRequired,
-      thumbnailUrl: string.isRequired,
-      imageUrl: string.isRequired,
-      likes: number.isRequired,
-      comments: {
-        username: string.isRequired,
-        text: string.isRequired
-      }
+      username: PropTypes.string.isRequired,
+      thumbnailUrl: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+      likes: PropTypes.number.isRequired,
+      comments: PropTypes.arrayOf(PropTypes.object).isRequired
     })
   )
 };
