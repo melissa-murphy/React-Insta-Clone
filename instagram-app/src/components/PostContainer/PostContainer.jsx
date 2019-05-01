@@ -12,14 +12,15 @@ import {
   CardFooter,
   Input
 } from 'reactstrap';
+import { IconContext } from 'react-icons';
+import { FiHeart, FiMoreHorizontal, FiMessageCircle } from 'react-icons/fi';
 
 class PostContainer extends Component {
-
   render() {
     return (
       <>
         <Row>
-          <Col xs={{ size: 6, offset: 3 }}>
+          <Col xs={{ size: 6, offset: 3 }} className="my-4">
             <Card>
               <CardHeader>
                 <Row>
@@ -39,11 +40,24 @@ class PostContainer extends Component {
               <CardImg src={this.props.post.imageUrl} alt="User Post" />
 
               <CardTitle className="text-left">
-                <Row>
-                  <Col>like and comment</Col>
+                <Row className="p-3">
+                  <Col>
+                    <Row>
+                      <Col xs="1">
+                        <IconContext.Provider value={{ size: '2rem' }}>
+                          <FiHeart />
+                        </IconContext.Provider>
+                      </Col>
+                      <Col>
+                        <IconContext.Provider value={{ size: '2rem' }}>
+                          <FiMessageCircle />
+                        </IconContext.Provider>
+                      </Col>
+                    </Row>
+                  </Col>
                 </Row>
-                <Row>
-                  <Col>#likes</Col>
+                <Row className="p-3">
+                  <Col>{this.props.post.likes}<span> Likes</span></Col>
                 </Row>
               </CardTitle>
               <CardBody>
@@ -52,6 +66,9 @@ class PostContainer extends Component {
               <CardFooter>
                 {/* Need to append more icon */}
                 <Input type="text" name="text" placeholder="Add a comment..." />
+                {/* <IconContext.Provider value={{ size: '2rem' }}>
+                      <FiMoreHorizontal />
+                    </IconContext.Provider> */}
               </CardFooter>
             </Card>
           </Col>
