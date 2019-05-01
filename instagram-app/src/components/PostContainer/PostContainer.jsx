@@ -16,6 +16,7 @@ import { IconContext } from 'react-icons';
 import { FiHeart, FiMoreHorizontal, FiMessageCircle } from 'react-icons/fi';
 
 class PostContainer extends Component {
+
   render() {
     return (
       <>

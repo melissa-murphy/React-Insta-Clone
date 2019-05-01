@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'reactstrap';
 
 class CommentSection extends Component {
+  addNewComment
   render() {
     return (
       <>
@@ -12,7 +13,7 @@ class CommentSection extends Component {
               xs="12"
               key={index}
               comment={comment}
-              className="comment text-left "
+              className="comment text-left"
             >
               <p>
                 <strong>{comment.username}</strong> {comment.text}

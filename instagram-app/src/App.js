@@ -5,26 +5,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import dummyData from './dummy-data.js';
 import SearchBar from './Components/SearchBar/SearchBar';
 import PostContainer from './Components/PostContainer/PostContainer';
+import CommentSection from './Components/CommentSection/CommentSection';
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      userPosts: dummyData
-      // post: {
-      //   username: '',
-      //   thumbnailUrl: '',
-      //   imageUrl: '',
-      //   likes: '',
-      //   timestamp: '',
-      //   comments: {
-      //     username: '',
-      //     text: ''
-      //   }
+  state = {
+    userPosts: [],
+    userInput: ''
+  };
 
-      // }
-    };
+  componentDidMount() {
+    this.setState({
+      userPosts: dummyData,
+      userInput: ''
+    });
   }
+
+  handleChange = event => {
+    event.preventDefault();
+    this.setState({
+      userInput: event.target.value
+    });
+  };
+
   render() {
     return (
       <div className="App">
