@@ -1,30 +1,39 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import SearchBar from "./components/SearchBar/SearchBar";
-import PostItems from "./components/PostContainer/PostItems";
-import PostContainer from "./components/PostContainer/PostContainer";
-import CommentSection from "./components/CommentSection/CommentSection";
-
-import dummyData from "./dummy-data";
+import dummyData from './dummy-data.js';
+import SearchBar from './Components/SearchBar/SearchBar';
+import PostContainer from './Components/PostContainer/PostContainer';
 
 class App extends React.Component {
-  state = {
-    dummyData: []
-  };
-  componentDidMount() {
-    console.log("App: CDM running");
-    this.setState({
-      dummyData: dummyData
-    });
-  }
+  constructor() {
+    super();
+    this.state = {
+      userPosts: dummyData
+      // post: {
+      //   username: '',
+      //   thumbnailUrl: '',
+      //   imageUrl: '',
+      //   likes: '',
+      //   timestamp: '',
+      //   comments: {
+      //     username: '',
+      //     text: ''
+      //   }
 
+      // }
+    };
+  }
   render() {
-    console.log("App rendering");
     return (
-      <div className="App container">
+      <div className="App">
         <SearchBar />
-        <PostItems dummyData={this.state.dummyData} />
+        <div className="container">
+          {this.state.userPosts.map((post, index) => (
+            <PostContainer key={index} post={post} />
+          ))}
+        </div>
       </div>
     );
   }

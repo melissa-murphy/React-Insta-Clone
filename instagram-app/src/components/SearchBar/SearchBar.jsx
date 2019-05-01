@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Row, Col, Input } from "reactstrap";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 import { FaInstagram } from "react-icons/fa";
 import { FiCompass, FiHeart, FiUser } from "react-icons/fi";
 import { IconContext } from "react-icons";
-import instagramLogo from "../../assets/img/instagram.png";
+import instagramLogo from "../../assets/instagram.png";
 
 
 const SearchBar = () => {
