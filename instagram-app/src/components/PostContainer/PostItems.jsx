@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 function PostItems(props) {
   return (
     <div>
-      {props.dummyData.map((item, index) => (
-        <PostContainer key={index} item={item} />
+      {props.dummyData.map((post , index) => (
+        <PostContainer key={index} post={post} />
       ))}
     </div>
   );

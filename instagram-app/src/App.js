@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 
-import PostItems from "./components/PostContainer/PostItems";
 import SearchBar from "./components/SearchBar/SearchBar";
+import PostItems from "./components/PostContainer/PostItems";
 import PostContainer from "./components/PostContainer/PostContainer";
 import CommentSection from "./components/CommentSection/CommentSection";
 
@@ -22,7 +22,7 @@ class App extends React.Component {
   render() {
     console.log("App rendering");
     return (
-      <div className="App">
+      <div className="App container">
         <SearchBar />
         <PostItems dummyData={this.state.dummyData} />
       </div>

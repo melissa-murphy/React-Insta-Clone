@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-import {
-//   Row,
+// import PropTypes from "prop-types";
+import //   Row,
 //   Col,
 //   Card,
 //   CardImg,
@@ -9,7 +8,7 @@ import {
 //   CardSubtitle,
 //   CardHeader,
 //   CardFooter
-} from "reactstrap";
+"reactstrap";
 
 class CommentSection extends React.Component {
   constructor() {
@@ -23,20 +22,19 @@ class CommentSection extends React.Component {
 
   render() {
     console.log("dummyData rendering");
-    return (
-      <>
-       </>
-    );
+    return <></>;
   }
 }
 
-CommentSection.propTypes = {
-  dummyData: PropTypes.arrayOf(
-    PropTypes.shape({
-      username: PropTypes.username
-    })
-  )
-};
+// CommentSection.propTypes = {
+//   dummyData: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       username: PropTypes.username,
+//       thumbnailUrl: PropTypes.thumbnailUrl,
+//       likes: PropTypes.likes
+//     })
+//   )
+// };
 
 CommentSection.defaultProps = {
   dummyData: []

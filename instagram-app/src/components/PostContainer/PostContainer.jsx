@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import CommentSection from "../CommentSection/CommentSection";
+import PropTypes from "prop-types";
+
 import {
-  Container,
   Row,
   Col,
   Card,
@@ -14,10 +14,6 @@ import {
 } from "reactstrap";
 
 class PostContainer extends React.Component {
-  constructor() {
-    super();
-    console.log("PostContainer constructor is running");
-  }
 
   componentDidMount() {
     console.log("CDM running");
@@ -26,13 +22,11 @@ class PostContainer extends React.Component {
   render() {
     console.log("postContainer rendering");
     return (
-      <>
-        <Container className="mt-5 postContainer">
-          <Row>
+          <Row className="postContainer my-5">
             <Col sm={{ size: 6, offset: 3 }}>
               <Card>
                 <CardHeader className="user-info">
-                  <p>{this.props.dummyData.username}</p>
+                  {this.props.dummyData.username}
                 </CardHeader>
                 <CardImg
                   top
@@ -44,21 +38,21 @@ class PostContainer extends React.Component {
                   <CardSubtitle>icons</CardSubtitle>
                 </CardBody>
                 <CardFooter>
-                  <CommentSection comments={this.props.dummyData.comments} />
+                  {/* <CommentSection comments={this.props.dummyData.comments} /> */}
                 </CardFooter>
               </Card>
             </Col>
           </Row>
-        </Container>
-      </>
+
+      
     );
   }
 }
 
 PostContainer.propTypes = {
-  dummyData: PropTypes.arrayOf(
+  post: PropTypes.arrayOf(
     PropTypes.shape({
-      username: PropTypes.username
+      username: PropTypes.string.isRequired
     })
   )
 };
