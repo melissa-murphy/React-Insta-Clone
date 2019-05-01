@@ -10,6 +10,9 @@ import {
   CardTitle,
   CardBody,
   CardFooter,
+  Form,
+  InputGroup,
+  InputGroupAddon,
   Input
 } from 'reactstrap';
 import { IconContext } from 'react-icons';
@@ -82,11 +85,23 @@ class PostContainer extends Component {
                 <CommentSection comments={this.props.post.comments} />
               </CardBody>
               <CardFooter>
-                {/* Need to append more icon */}
-                <Input type="text" name="text" placeholder="Add a comment..." />
-                {/* <IconContext.Provider value={{ size: '2rem' }}>
-                      <FiMoreHorizontal />
-                    </IconContext.Provider> */}
+                <Form>
+                  <InputGroup>
+                    <Input
+                      type="text"
+                      name="text"
+                      placeholder="Add a comment..."
+                    />
+                    <InputGroupAddon
+                      className="pl-3 my-auto"
+                      addonType="append"
+                    >
+                      <IconContext.Provider value={{ size: '1.4rem' }}>
+                        <FiMoreHorizontal />
+                      </IconContext.Provider>
+                    </InputGroupAddon>
+                  </InputGroup>
+                </Form>
               </CardFooter>
             </Card>
           </Col>

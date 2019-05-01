@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import dummyData from './dummy-data.js';
 import SearchBar from './Components/SearchBar/SearchBar';
 import PostContainer from './Components/PostContainer/PostContainer';
-import CommentSection from './Components/CommentSection/CommentSection';
+// import CommentSection from './Components/CommentSection/CommentSection';
 
 class App extends React.Component {
   state = {
