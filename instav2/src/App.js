@@ -10,19 +10,19 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      userPosts: dummyData,
-      post: {
-        username: '',
-        thumbnailUrl: '',
-        imageUrl: '',
-        likes: '',
-        timestamp: '',
-        comments: {
-          username: '',
-          text: ''
-        }
+      userPosts: dummyData
+      // post: {
+      //   username: '',
+      //   thumbnailUrl: '',
+      //   imageUrl: '',
+      //   likes: '',
+      //   timestamp: '',
+      //   comments: {
+      //     username: '',
+      //     text: ''
+      //   }
 
-      }
+      // }
     };
   }
   render() {

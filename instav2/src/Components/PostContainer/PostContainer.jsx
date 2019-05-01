@@ -18,7 +18,7 @@ class PostContainer extends Component {
         <Row>
           <Col>
             <Card>
-              <CardHeader>user icon and name</CardHeader>
+              <CardHeader>{ this.props.post.username }</CardHeader>
 
               <CardImg />
 
@@ -36,7 +36,10 @@ class PostContainer extends Component {
 PostContainer.propTypes = {
     postContainer: PropTypes.arrayOf(
         PropTypes.shape({
-            
+            username: string.isRequired,
+            thumbnailUrl: string.isRequired,
+            imageUrl: string.isRequired,
+            likes: number.isRequired
         })
     )
 };
