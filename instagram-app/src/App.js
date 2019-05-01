@@ -20,13 +20,6 @@ class App extends React.Component {
     });
   }
 
-  handleChange = event => {
-    event.preventDefault();
-    this.setState({
-      userInput: event.target.value
-    });
-  };
-
   render() {
     return (
       <div className="App">

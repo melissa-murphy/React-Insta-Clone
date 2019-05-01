@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'reactstrap';
 
 class CommentSection extends Component {
-  addNewComment
   render() {
     return (
       <>

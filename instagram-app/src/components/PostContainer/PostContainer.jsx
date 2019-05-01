@@ -20,7 +20,8 @@ import { FiHeart, FiMoreHorizontal, FiMessageCircle } from 'react-icons/fi';
 
 class PostContainer extends Component {
   state = {
-    likes: 0
+    likes: 0,
+    userInput: ''
   };
 
   componentDidMount() {
@@ -28,12 +29,25 @@ class PostContainer extends Component {
       likes: this.props.post.likes
     });
   }
-  addOnClick = event => {
-    console.log('Click to like fired');
+  addOnClick = () => {
+    console.log('Click to add fired');
     this.setState({
       likes: this.state.likes + 1
     });
   };
+  addNewComment = event => {
+    event.preventDefault();
+    this.setState({
+      userInput: ''
+    });
+  };
+  handleChange = event => {
+    event.preventDefault();
+    this.setState({
+      userInput: event.target.value
+    });
+  };
+
   render() {
     return (
       <>
@@ -85,6 +99,7 @@ class PostContainer extends Component {
                 <CommentSection comments={this.props.post.comments} />
               </CardBody>
               <CardFooter>
+                {/* -------------------form start */}
                 <Form>
                   <InputGroup>
                     <Input
@@ -93,6 +108,7 @@ class PostContainer extends Component {
                       placeholder="Add a comment..."
                     />
                     <InputGroupAddon
+                      onClick={this.addNewComment}
                       className="pl-3 my-auto"
                       addonType="append"
                     >
@@ -102,6 +118,7 @@ class PostContainer extends Component {
                     </InputGroupAddon>
                   </InputGroup>
                 </Form>
+                {/* ------------------form end */}
               </CardFooter>
             </Card>
           </Col>
