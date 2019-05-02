@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CommentSection from '../CommentSection/CommentSection';
+import CommentSection from '../CommentSection/CommentSectionContainer';
 
 import {
   Row,
@@ -9,8 +9,7 @@ import {
   CardHeader,
   CardImg,
   CardTitle,
-  CardBody,
-
+  CardBody
 } from 'reactstrap';
 import { IconContext } from 'react-icons';
 import { FiHeart, FiMoreHorizontal, FiMessageCircle } from 'react-icons/fi';
@@ -27,27 +26,25 @@ class Post extends Component {
     let likes = this.state.likes + 1;
     this.setState({ likes });
   };
-  
 
   render() {
     return (
-      <div className="post-border">
-        <Row>
+      <>
+        <Row className="post-border">
           <Col sm={{ size: 6, offset: 3 }}>
             <Card>
-              
-
-              <CardImg className="post-image-wrapper" src={this.props.post.imageUrl} alt="User Post" />
-
-
-              <CardBody>
-                <CommentSection comments={this.props.post.comments} />
-              </CardBody>
-
+              <PostHeader />>
+              <CardImg
+                className="post-image-wrapper"
+                src={this.props.post.imageUrl}
+                alt="User Post"
+              />
+              <LikeSection />
+              <CommentSection />
             </Card>
           </Col>
         </Row>
-      </div>
+      </>
     );
   }
 }
@@ -58,9 +55,7 @@ Post.propTypes = {
     PropTypes.shape({
       username: PropTypes.string.isRequired,
       thumbnailUrl: PropTypes.string.isRequired,
-      imageUrl: PropTypes.string.isRequired,
-      likes: PropTypes.number.isRequired,
-      comments: PropTypes.arrayOf(PropTypes.object).isRequired
+      imageUrl: PropTypes.string.isRequired
     })
   )
 };
