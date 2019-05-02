@@ -39,3 +39,29 @@ CommentSection.defaultProps = {
 };
 
 export default CommentSection;
+
+
+
+// componentDidMount() {
+//   this.setState({
+//     likes: this.props.post.likes
+//   });
+// }
+
+// addNewComment = event => {
+//   event.preventDefault();
+
+//   console.log(
+//     this.state.userInput + this.props.index + '---------------User Input'
+//   );
+
+//   this.setState({
+//     comments: this.state.comments + this.state.userInput
+//   });
+// };
+// handleChange = event => {
+//   event.preventDefault();
+//   this.setState({
+//     userInput: event.target.value
+//   });
+// };
