@@ -10,11 +10,7 @@ import {
   CardImg,
   CardTitle,
   CardBody,
-  CardFooter,
-  Form,
-  InputGroup,
-  InputGroupAddon,
-  Input
+
 } from 'reactstrap';
 import { IconContext } from 'react-icons';
 import { FiHeart, FiMoreHorizontal, FiMessageCircle } from 'react-icons/fi';
@@ -39,47 +35,11 @@ class Post extends Component {
         <Row>
           <Col sm={{ size: 6, offset: 3 }}>
             <Card>
-              <CardHeader>
-                <Row>
-                  <Col xs="2">
-                    <img
-                      className=""
-                      src={this.props.post.thumbnailUrl}
-                      alt={this.props.post.username}
-                    />
-                  </Col>
-                  <Col xs="10" className="">
-                    <strong>{this.props.post.username}</strong>
-                  </Col>
-                </Row>
-              </CardHeader>
+              
 
-              <CardImg src={this.props.post.imageUrl} alt="User Post" />
+              <CardImg className="post-image-wrapper" src={this.props.post.imageUrl} alt="User Post" />
 
-              <CardTitle className="text-left">
-                <Row>
-                  <Col>
-                    <Row>
-                      <Col xs="1" onClick={this.addOnClick.bind(this)}>
-                        <IconContext.Provider value={{ size: '2rem' }}>
-                          <FiHeart />
-                        </IconContext.Provider>
-                      </Col>
-                      <Col>
-                        <IconContext.Provider value={{ size: '2rem' }}>
-                          <FiMessageCircle />
-                        </IconContext.Provider>
-                      </Col>
-                    </Row>
-                  </Col>
-                </Row>
-                <Row className="p-3">
-                  <Col>
-                    {this.state.likes}
-                    <span> Likes</span>
-                  </Col>
-                </Row>
-              </CardTitle>
+
               <CardBody>
                 <CommentSection comments={this.props.post.comments} />
               </CardBody>
