@@ -22,7 +22,7 @@ class App extends Component {
 
   searchPostsHandler = event => {
     const posts = this.state.posts.filter(post => {
-      if (posts.username.includes(event.target.value)) {
+      if (post.username.includes(event.target.value)) {
         return post;
       }
     });

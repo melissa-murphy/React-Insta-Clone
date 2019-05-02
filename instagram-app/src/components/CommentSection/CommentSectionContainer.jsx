@@ -1,97 +1,86 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Comment from 
-// import { Row, Col, CardBody } from 'reactstrap';
+import Comments from './Comments';
+import CommentSubmit from './CommentSubmit';
 
-// class CommentSection extends Component {
-//   render() {
-//     return (
-//       <>
-//         <Row>
-//           {this.props.comments.map((comment, index) => (
-//             <Col
-//               xs="12"
-//               key={index}
-//               comment={comment}
-//               className="comment text-left"
-//             >
-//               <p>
-//                 <strong>{comment.username}</strong> {comment.text}
-//               </p>
-//             </Col>
-//           ))}
-//         </Row>
-//       </>
-//     );
-//   }
-// }
+class CommentSectionContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      comments: props.comments,
+      comment: ''
+    };
+  }
+  componentDidMount() {
+    const id = this.props.postId;
+    if (localStorage.get(id)) {
+      this.setState({
+        comments: JSON.parse(localStorage.getItem(this.props.id))
+      });
+    } else {
+      this.currentComments();
+    }
+  }
 
-// <CardBody>
-//   <CommentSection comments={this.props.post.comments} />
-// </CardBody>;
+  componentWillUnmount() {
+    this.currentComments();
+  }
 
-// CommentSection.propTypes = {
-//   comments: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       username: PropTypes.string.isRequired,
-//       text: PropTypes.string.isRequired
-//     })
-//   )
-// };
+  currentComments = () => {
+    localStorage.setItem(
+      this.props.postId,
+      JSON.stringify(this.state.comments)
+    );
+  };
 
-// CommentSection.defaultProps = {
-//   commentSection: []
-// };
+  handleCommentChange = event => {
+    event.preventDefault();
+    this.setState({
+      comment: event.target.value
+    });
+  };
 
-// export default CommentSection;
+  handleCommentSubmit = event => {
+    event.preventDefault();
+    const newComment = { text: this.state.comment, username: 'melissamurphy' };
+    const comments = this.state.comments.slice();
+    comments.push(newComment);
+    this.setState({
+      comments,
+      comment: ''
+    });
+    setTimeout(() => {
+      this.setComments();
+    }, 500);
+  };
 
-// // componentDidMount() {
-// //   this.setState({
-// //     likes: this.props.post.likes
-// //   });
-// // }
+  render() {
+    return (
+      <>
+        {this.props.comments.map((comment, index) => (
+          <Comments key={index} comment={comment} />
+        ))}
+        <CommentSubmit
+          comment={this.state.comment}
+          handleCommentSubmit={this.handleCommentSubmit}
+          handleCommentChange={this.handleCommentChange}
+        />
+      </>
+    );
+  }
+}
 
-// // addNewComment = event => {
-// //   event.preventDefault();
+CommentSectionContainer.propTypes = {
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: PropTypes.string,
+      text: PropTypes.string
+    })
+  )
+};
 
-// //   console.log(
-// //     this.state.userInput + this.props.index + '---------------User Input'
-// //   );
+export default CommentSectionContainer;
 
-// //   this.setState({
-// //     comments: this.state.comments + this.state.userInput
-// //   });
-// // };
-// // handleChange = event => {
-// //   event.preventDefault();
-// //   this.setState({
-// //     userInput: event.target.value
-// //   });
-// // };
-
-// // componentDidMount() {
-// //   this.setState({
-// //     likes: this.props.post.likes
-// //   });
-// // }
-
-// // addNewComment = event => {
-// //   event.preventDefault();
-
-// //   console.log(
-// //     this.state.userInput + this.props.index + '---------------User Input'
-// //   );
-
-// //   this.setState({
-// //     comments: this.state.comments + this.state.userInput
-// //   });
-// // };
-// // handleChange = event => {
-// //   event.preventDefault();
-// //   this.setState({
-// //     userInput: event.target.value
-// //   });
-// // };
 
 // // <CardFooter>
 // // {/* -------------------form start */}

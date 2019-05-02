@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CommentSection from '../CommentSection/CommentSectionContainer';
+import PostHeader from './PostHeader';
+import LikeSection from './LikeSection';
 
 import {
   Row,
   Col,
   Card,
-  CardHeader,
-  CardImg,
-  CardTitle,
-  CardBody
+  CardImg
 } from 'reactstrap';
-import { IconContext } from 'react-icons';
-import { FiHeart, FiMoreHorizontal, FiMessageCircle } from 'react-icons/fi';
 
 class Post extends Component {
   constructor(props) {
@@ -39,7 +36,7 @@ class Post extends Component {
                 src={this.props.post.imageUrl}
                 alt="User Post"
               />
-              <LikeSection />
+              <LikeSection onClick={this.addOnClick} />
               <CommentSection />
             </Card>
           </Col>
